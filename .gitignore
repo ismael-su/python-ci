@@ -1,3 +1,5 @@
 venv/
 .DS_Store
 .idea/
+.pytest_cache
+!.git/hooks/
