@@ -1,7 +1,7 @@
 # This workflow will install Python dependencies, run tests and lint with a variety of Python versions
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: Python package
+name: Linting, Testing and deployment
 
 on:
   push:
@@ -40,4 +40,14 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    - name: Push Docker Image To Package Registry
+      uses: craftech-io/package-action@v3.1.0
+      id: url-GPR
+      with:
+        tags: latest
+        access_token: ${{ secrets.GITHUB_TOKEN }}
+        image_name: ismael-fastapi
+
+    - name: output
+      run: echo ${{ steps.url-GPR.outputs.imageURL }}
 
