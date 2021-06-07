@@ -1,17 +1,11 @@
 
-This project is a showcase of how we can implement a CI/CD workflow on a fastapi based project ran in
-a docker container
-The base [FastAPI Image](https://github.com/tiangolo/fastapi)
+This project is a showcase of how we can implement a CI/CD workflow on a fastApi based project ran in
+a [Docker](https://docs.docker.com/get-started) container
+The base [FastAPI Image](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker)
 
 ## Run the docker image
 
-### Requirements on MAC OS :
 
-````shell script
-brew install docker --cask
-brew install docker-machine
-brew install virtualbox
-````
 
 ### Clone the project
 
@@ -21,13 +15,6 @@ cd python-ci
 python3 -m venv venv
 pip install -r requirements.txt
 ````
-
-### Set un local environment
-`````shell script
-docker-machine create mymachine
-docker-machine start mymachine
-docker-machine env mymachine
-`````
 
 
 # follow instructions from above command
