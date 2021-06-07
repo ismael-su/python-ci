@@ -41,14 +41,23 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
-    - name: Push Docker Image To Package Registry
-      uses: craftech-io/package-action@v3.1.0
-      id: url-GPR
+
+    - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      id: docker_build
       with:
-        tags: latest
-        access_token: ${{ secrets.GITHUB_TOKEN }}
-        image_name: ismael-fastapi
+        context: .
+        platforms: linux/amd64,linux/arm64
+        push: true
+        tags: ghcr.io/user/app:latest
 
     - name: output
-      run: echo ${{ steps.url-GPR.outputs.imageURL }}
+      run: echo ${{ steps.docker_build.outputs.digest }}
 
