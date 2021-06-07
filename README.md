@@ -1,4 +1,4 @@
-
+# Python FastApi docker CI/CD Workflow
 This project is a showcase of how we can implement a CI/CD workflow on a fastApi based project ran in
 a [Docker](https://docs.docker.com/get-started) container
 The base [FastAPI Image](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker)
@@ -16,11 +16,7 @@ python3 -m venv venv
 pip install -r requirements.txt
 ````
 
-
-# follow instructions from above command
-
-
-### Build locally and run`
+### Build locally and run
 
 `````shell script
 docker build -t myimage .
