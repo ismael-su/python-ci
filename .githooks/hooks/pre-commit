@@ -4,3 +4,4 @@ pip freeze > requirements.txt
 git add requirements.txt
 autopep8 --in-place --aggressive --aggressive ./app/*.py
 flake8 . --count  --show-source --s
+pytest
