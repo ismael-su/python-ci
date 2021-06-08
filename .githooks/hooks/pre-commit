@@ -1,7 +1,6 @@
 #!/bin/sh
 
-pip freeze > requirements.txt
-git add requirements.txt
-autopep8 --in-place --aggressive --aggressive ./app/*.py
+
+autopep8 --in-place --aggressive --aggressive ./app/*.py ./tests/*
 flake8 . --count  --show-source --s
-pytest
+pytest tests/app
