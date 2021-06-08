@@ -3,3 +3,4 @@ venv/
 .idea/
 .pytest_cache
 !.git/hooks/
+requirements.txt
